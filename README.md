@@ -67,7 +67,7 @@ printf("\n Average waiting time is %5.2f\n average tat is%5.2f",awt,atat); }
 
 
 ## RESULT : 
-First-Come-First-Serve Scheduling is implemented successfully.
+First-Come-First-Serve Scheduling (FCFS) is implemented successfully.
 ## Shortest Job First (SJF) Preemptive Scheduling
 ## AIM : 
 To implement Shortest Job First (SJF) Preemptive Scheduling
