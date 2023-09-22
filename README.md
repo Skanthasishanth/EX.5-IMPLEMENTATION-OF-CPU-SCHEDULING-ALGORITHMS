@@ -1,26 +1,22 @@
 # EX.5-IMPLEMENTATION-OF-CPU-SCHEDULING-ALGORITHMS
-# First-Come-First-Serve (FCFS) Scheduling
-## AIM: To implement First-Come-First-Serve (FCFS) Scheduling
-
-## ALGORITHM:
-1. Start with a queue (or a list) to represent the ready queue of processes.
-2. Initialize a timer or clock to 0.
-3. Read the number of processes (n) and create a data structure to store process information, including arrival time (AT) and burst time (BT) for each process.
-4. Read the arrival time and burst time for each process and store them in the data structure.
-5. Sort the processes in the ready queue based on their arrival times in ascending order. This step ensures that processes are executed in the order they arrive.
-6. Initialize the waiting time (WT) and turnaround time (TAT) for the first process to 0.
-7. For each process in the ready queue (in the order of arrival):
-  a. Calculate the start time (ST) as the maximum of the current time and the arrival time of the process.
-  b. Calculate the finish time (FT) as the start time plus the burst time of the process.
-  c. Calculate the waiting time (WT) for the process as the start time minus the arrival time.
-  d. Calculate the turnaround time (TAT) for the process as the finish time minus the arrival time.
-  e. Update the current time to the finish time.
-8. Calculate the average waiting time (AWT) and average turnaround time (ATAT) for all processes by summing up the individual waiting times and turnaround times and dividing by the total number of processes.
-9. Display the waiting time, turnaround time, and other relevant information for each process.
-10. Display the average waiting time and average turnaround time for all processes.
-11. End.
-
-## PROGRAM:
+## First-Come-First-Serve (FCFS) Scheduling
+## AIM :
+To implement First-Come-First-Serve (FCFS) Scheduling
+## ALGORITHM :
+```
+Start with a queue (or a list) to represent the ready queue of processes.
+Initialize a timer or clock to 0.
+Read the number of processes (n) and create a data structure to store process information, including arrival time (AT) and burst time (BT) for each process.
+Read the arrival time and burst time for each process and store them in the data structure.
+Sort the processes in the ready queue based on their arrival times in ascending order. This step ensures that processes are executed in the order they arrive.
+Initialize the waiting time (WT) and turnaround time (TAT) for the first process to 0.
+For each process in the ready queue (in the order of arrival): a. Calculate the start time (ST) as the maximum of the current time and the arrival time of the process. b. Calculate the finish time (FT) as the start time plus the burst time of the process. c. Calculate the waiting time (WT) for the process as the start time minus the arrival time. d. Calculate the turnaround time (TAT) for the process as the finish time minus the arrival time. e. Update the current time to the finish time.
+Calculate the average waiting time (AWT) and average turnaround time (ATAT) for all processes by summing up the individual waiting times and turnaround times and dividing by the total number of processes.
+Display the waiting time, turnaround time, and other relevant information for each process.
+Display the average waiting time and average turnaround time for all processes.
+End.
+```
+## PROGRAM :
 ```
 #include<stdio.h>
 int main()
@@ -65,37 +61,35 @@ printf("\n %d\t %d\t %d\t %d\t %d\t %d\t %d\t%5.2f",i,at[i],bt[i],st[i],ft[i],wt
 printf("\n--------------------------------------------------------------");
 printf("\n Average waiting time is %5.2f\n average tat is%5.2f",awt,atat); }
 ```
+## OUTPUT :
 
-## OUTPUT:
+![os exp5 1](https://github.com/Skanthasishanth/EX.5-IMPLEMENTATION-OF-CPU-SCHEDULING-ALGORITHMS/assets/118298456/058085b8-80a7-427e-be6f-5f9d08a2e293)
 
 
-## RESULT: First-Come-First-Serve Scheduling is implemented successfully.
+## RESULT : 
+First-Come-First-Serve Scheduling is implemented successfully.
+## Shortest Job First (SJF) Preemptive Scheduling
+## AIM : 
+To implement Shortest Job First (SJF) Preemptive Scheduling
+## ALGORITHM :
+```
+Initialize variables and arrays to store process information, such as process ID (p), arrival time (at), burst time (bt), start time (st), finish time (ft), waiting time (wt), turnaround time (tt), response ratio (rr), and a flag to mark completed processes (iscompleted).
 
-# Shortest Job First (SJF) Preemptive Scheduling
-## AIM: To implement Shortest Job First (SJF) Preemptive Scheduling
+Read the number of processes (n) from the user.
 
-## ALGORITHM:
-1. Initialize variables and arrays to store process information, such as process ID (p), arrival time (at), burst time (bt), start time (st), finish time (ft), waiting time (wt), turnaround time (tt), response ratio (rr), and a flag to mark completed processes (iscompleted).
-2. Read the number of processes (n) from the user.
+Read the process ID, arrival time, and burst time for each process and store them in respective arrays (p, at, bt).
 
-3. Read the process ID, arrival time, and burst time for each process and store them in respective arrays (p, at, bt).
+Initialize variables, such as nextst (next start time) and counters.
 
-4. Initialize variables, such as nextst (next start time) and counters.
+Loop until all processes are completed: a. Find the process with the minimum burst time among the processes that have arrived and are not completed. b. Update the start time, finish time, waiting time, and turnaround time for the selected process. c. Calculate the response ratio (rr) for the selected process (rr = turnaround time / burst time). d. Mark the selected process as completed. e. Update the nextst to the finish time of the selected process.
 
-5. Loop until all processes are completed:
-  a. Find the process with the minimum burst time among the processes that have arrived and are not completed.
-  b. Update the start time, finish time, waiting time, and turnaround time for the selected process.
-  c. Calculate the response ratio (rr) for the selected process (rr = turnaround time / burst time).
-  d. Mark the selected process as completed.
-  e. Update the nextst to the finish time of the selected process.
+Calculate the average waiting time (AWT) and average turnaround time (ATT) by summing up the individual waiting times and turnaround times and dividing by the total number of processes.
 
-6. Calculate the average waiting time (AWT) and average turnaround time (ATT) by summing up the individual waiting times and turnaround times and dividing by the total number of processes.
+Display the process information, including process ID, arrival time, burst time, start time, finish time, waiting time, turnaround time, and response ratio.
 
-7. Display the process information, including process ID, arrival time, burst time, start time, finish time, waiting time, turnaround time, and response ratio.
-
-8. Display the average waiting time and average turnaround time.
-
-## PROGRAM:
+Display the average waiting time and average turnaround time.
+```
+## PROGRAM :
 ```
 #include<stdio.h>
 int main()
@@ -157,33 +151,17 @@ printf("\nAverage waiting time is %5.2f",awt);
 printf("\nAverage turn around time is %5.2f",att);
 }
 ```
+ ## OUTPUT :
+
+![os exp5 2](https://github.com/Skanthasishanth/EX.5-IMPLEMENTATION-OF-CPU-SCHEDULING-ALGORITHMS/assets/118298456/1cbb6f39-f158-4ffe-8bb4-e4de3cbda88c)
 
 
-## OUTPUT:
-
-## RESULT: Shortest Job First (SJF) preemptive scheduling is implemented successfully.
-
-# Shortest Job First (SJF) Non-Preemptive Scheduling
-
-## AIM: To implement Shortest Job First (SJF) Non-Preemptive Scheduling
-
-## ALGORITHM:
-
-
-## PROGRAM:
-
-## OUTPUT:
-
-
-## RESULT: Shortest Job First (SJF) Non-preemptive scheduling is implemented successfully.
-# Round Robin (RR) Scheduling
-
-## AIM: To implement Round Robin (RR) Scheduling
-
-## ALGORITHM:
-
-
-## PROGRAM:
+## RESULT : 
+Shortest Job First (SJF) preemptive scheduling is implemented successfully.
+## Round Robin (RR) Scheduling
+## AIM : 
+To implement Round Robin (RR) Scheduling
+## PROGRAM :
 ```
 #include<stdio.h>
 int main()
@@ -302,34 +280,16 @@ printf("\nAvg waiting time is %5.2f ",awt );
 printf("\nAvg turn around time is %5.2f",atat);
 }
 ```
-
-## OUTPUT:
-
-
-## RESULT: Round Robin (RR) Scheduling is implemented successfully.
-
-# Priority Preemptive Scheduling
-## AIM: To implement Priority Preemptive Scheduling
-
-## ALGORITHM:
+## OUTPUT :
+![os exp5 3](https://github.com/Skanthasishanth/EX.5-IMPLEMENTATION-OF-CPU-SCHEDULING-ALGORITHMS/assets/118298456/3a56d67e-2cf4-40c4-8bf3-e8bcffe231dd)
 
 
-## PROGRAM:
-```
-
-```
-## OUTPUT:
-
-
-## RESULT: Priority Preemptive scheduling is implemented successfully.
-
-# Priority Non-Preemptive Scheduling
-## AIM: To implement Priority Non-Preemptive Scheduling
-
-## ALGORITHM:
-
-
-## PROGRAM:
+## RESULT : 
+Round Robin (RR) Scheduling is implemented successfully.
+## Priority Preemptive Scheduling
+## AIM : 
+To implement Priority Preemptive Scheduling
+## PROGRAM :
 ```
 #include<stdio.h>
 int main()
@@ -407,9 +367,9 @@ printf("The average waiting time is: %5.2f\n",awt);
 printf("The average turn around time is: %5.2f",atat);
 }
 ```
+## OUTPUT :
+![os exp5 4](https://github.com/Skanthasishanth/EX.5-IMPLEMENTATION-OF-CPU-SCHEDULING-ALGORITHMS/assets/118298456/b3973666-8de7-43ec-94bf-1d44543e0f2e)
 
-## OUTPUT:
 
-
-## RESULT: Priority Non-preemptive scheduling is implemented successfully.
-
+## RESULT : 
+Priority Non-preemptive scheduling is implemented successfully.
